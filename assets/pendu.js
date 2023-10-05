@@ -1,4 +1,4 @@
-window.onload = function () {
+
 
   var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
         'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
@@ -6,7 +6,6 @@ window.onload = function () {
   
   var categories;         // Array of topics
   var chosenCategory;     // Selected catagory
-  var getHint ;          // Word getHint
   var word ;              // Selected word
   var guess ;             // Geuss
   var geusses = [ ];      // Stored geusses
@@ -17,10 +16,7 @@ window.onload = function () {
   // Get elements
   var showLives = document.getElementById("mylives");
   var showCatagory = document.getElementById("scatagory");
-  var getHint = document.getElementById("hint");
   var showClue = document.getElementById("clue");
-
-
 
   // create alphabet ul
   var buttons = function () {
@@ -38,15 +34,14 @@ window.onload = function () {
     }
   }
     
-  
   // Select Catagory
   var selectCat = function () {
     if (chosenCategory === categories[0]) {
-      catagoryName.innerHTML = "The Chosen Category Is Premier League Football Teams";
+      catagoryName.innerHTML = "Trouvez un animal";
     } else if (chosenCategory === categories[1]) {
-      catagoryName.innerHTML = "The Chosen Category Is Films";
+      catagoryName.innerHTML = "Trouvez un film";
     } else if (chosenCategory === categories[2]) {
-      catagoryName.innerHTML = "The Chosen Category Is Cities";
+      catagoryName.innerHTML = "Trouvez une ville";
     }
   }
 
@@ -74,25 +69,24 @@ window.onload = function () {
   
   // Show lives
    comments = function () {
-    showLives.innerHTML = "You have " + lives + " lives";
+    showLives.innerHTML = "Il vous reste " + lives + " vies";
     if (lives < 1) {
-      showLives.innerHTML = "Game Over";
+      showLives.innerHTML = "Perdu";
     }
     for (var i = 0; i < geusses.length; i++) {
       if (counter + space === geusses.length) {
-        showLives.innerHTML = "You Win!";
+        showLives.innerHTML = "Gagné!";
       }
     }
   }
 
-      // Animate man
+  // Animate man
   var animate = function () {
     var drawMe = lives ;
     drawArray[drawMe]();
   }
 
-  
-   // Hangman
+  // Hangman
   canvas =  function(){
 
     myStickman = document.getElementById("stickman");
@@ -183,9 +177,9 @@ window.onload = function () {
   // Play
   play = function () {
     categories = [
-        ["everton", "liverpool", "swansea", "chelsea", "hull", "manchester-city", "newcastle-united"],
-        ["alien", "dirty-harry", "gladiator", "finding-nemo", "jaws"],
-        ["manchester", "milan", "madrid", "amsterdam", "prague"]
+        ["pingouin", "cheval", "dromadaire", "python", "hamster", "porc", "tortue"],
+        ["alien", "dirty-dancing", "gladiator", "pulp fiction", "la ligne verte"],
+        ["paris", "milan", "madrid", "amsterdam", "prague"]
     ];
 
     chosenCategory = categories[Math.floor(Math.random() * categories.length)];
@@ -203,33 +197,16 @@ window.onload = function () {
     selectCat();
     canvas();
   }
-
   play();
   
-  // Hint
-
-    hint.onclick = function() {
-
-      hints = [
-        ["Based in Mersyside", "Based in Mersyside", "First Welsh team to reach the Premier Leauge", "Owned by A russian Billionaire", "Once managed by Phil Brown", "2013 FA Cup runners up", "Gazza's first club"],
-        ["Science-Fiction horror film", "1971 American action film", "Historical drama", "Anamated Fish", "Giant great white shark"],
-        ["Northern city in the UK", "Home of AC and Inter", "Spanish capital", "Netherlands capital", "Czech Republic capital"]
-    ];
-
-    var catagoryIndex = categories.indexOf(chosenCategory);
-    var hintIndex = chosenCategory.indexOf(word);
-    showClue.innerHTML = "Clue: - " +  hints [catagoryIndex][hintIndex];
-  };
-
    // Reset
-
-  document.getElementById('reset').onclick = function() {
+    document.getElementById('reset').onclick = function() {
     correct.parentNode.removeChild(correct);
     letters.parentNode.removeChild(letters);
     showClue.innerHTML = "";
     context.clearRect(0, 0, 400, 400);
     play();
   }
-}
+
 
 

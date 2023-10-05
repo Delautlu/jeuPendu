@@ -1,59 +1,51 @@
 body {
-  background: #c1d72e;
+  background: #30768b;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  color: #fff;
   height: 100%;
   text-align: center;
   font-size: 18px;
 }
-
-.wrappper {
+.wrappper1, .wrappper2 {
   width: 100%;
   margin: 0 auto;
 }
-.wrappper:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
 canvas {
   color: #fff;
   border: #fff dashed 2px;
-  padding: 15px;
+  padding: 45px;
 }
-
-h1, h2, h3 {
+h1 {
+  color: #fff;
   font-family: "Roboto", sans-serif;
-  font-weight: 100;
-  text-transform: uppercase;
+  font-size: 30px;
   margin: 5px 0;
 }
-
 h1 {
+  color: #fff;
   font-size: 2.6em;
 }
-
 h2 {
+  color: #fff;
   font-size: 1.6em;
 }
-
 p {
+  color: #fff;
   font-size: 1.6em;
 }
-
 #alphabet {
+  color: #fff;
   margin: 15px auto;
   padding: 0;
   max-width: 900px;
 }
 #alphabet:after {
+  color: black;
   content: "";
   display: table;
   clear: both;
 }
-
 #alphabet li {
+  color: black;
   float: left;
   margin: 0 10px 10px 0;
   list-style: none;
@@ -61,7 +53,6 @@ p {
   height: 30px;
   padding-top: 10px;
   background: #fff;
-  color: #c1d72e;
   cursor: pointer;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -74,14 +65,12 @@ p {
   border: solid 1px #fff;
   color: #fff;
 }
-
 #my-word {
   margin: 0;
   display: block;
   padding: 0;
   display: block;
 }
-
 #my-word li {
   position: relative;
   list-style: none;
@@ -90,36 +79,22 @@ p {
   padding: 0 10px;
   font-size: 1.6em;
 }
-h1, h2, h3 {
-  font-family: "Roboto", sans-serif;
-  font-weight: 100;
-  text-transform: uppercase;
-  margin: 5px 0;
-}
-
-h1 {
-  font-size: 2.6em;
-}
-
-h2 {
-  font-size: 1.6em;
-}
-
 p {
   font-size: 1.6em;
+  color:#fff;
 }
-
 #alphabet {
   margin: 15px auto;
   padding: 0;
   max-width: 900px;
+  color: black;
 }
 #alphabet:after {
   content: "";
   display: table;
   clear: both;
+  color: black;
 }
-
 #alphabet li {
   float: left;
   margin: 0 10px 10px 0;
@@ -128,7 +103,6 @@ p {
   height: 30px;
   padding-top: 10px;
   background: #fff;
-  color: #c1d72e;
   cursor: pointer;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -141,14 +115,12 @@ p {
   border: solid 1px #fff;
   color: #fff;
 }
-
 #my-word {
   margin: 0;
   display: block;
   padding: 0;
   display: block;
 }
-
 #my-word li {
   position: relative;
   list-style: none;
@@ -156,4 +128,10 @@ p {
   display: inline-block;
   padding: 0 10px;
   font-size: 1.6em;
+  color: #fff;
+}
+button {
+  border-radius: 15px;
+  font-size:20px;
+  background-color:#c1d72e;
 }
