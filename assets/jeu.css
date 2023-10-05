@@ -132,6 +132,9 @@ p {
 }
 button {
   border-radius: 15px;
+  border-bottom: none;
   font-size:20px;
-  background-color:#c1d72e;
+  background-color:#686b56e0;
+  color:#fff;
 }
+

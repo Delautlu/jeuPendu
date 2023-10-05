@@ -13,12 +13,12 @@
   var counter ;           // Count correct geusses
   var space;              // Number of spaces in word '-'
 
-  // Get elements
+  // id des élements
   var showLives = document.getElementById("mylives");
   var showCatagory = document.getElementById("scatagory");
   var showClue = document.getElementById("clue");
 
-  // create alphabet ul
+  // creation alphabet ul
   var buttons = function () {
     myButtons = document.getElementById('buttons');
     letters = document.createElement('ul');
@@ -34,7 +34,7 @@
     }
   }
     
-  // Select Catagory
+  // catégories
   var selectCat = function () {
     if (chosenCategory === categories[0]) {
       catagoryName.innerHTML = "Trouvez un animal";
@@ -46,7 +46,7 @@
   }
 
   // Create geusses ul
-   result = function () {
+  result = function () {
     wordHolder = document.getElementById('hold');
     correct = document.createElement('ul');
 
@@ -60,14 +60,13 @@
       } else {
         guess.innerHTML = "_";
       }
-
       geusses.push(guess);
       wordHolder.appendChild(correct);
       correct.appendChild(guess);
     }
   }
   
-  // Show lives
+  // compteur de vies et annonce résultat
    comments = function () {
     showLives.innerHTML = "Il vous reste " + lives + " vies";
     if (lives < 1) {
@@ -80,13 +79,13 @@
     }
   }
 
-  // Animate man
+  // pendu animé
   var animate = function () {
     var drawMe = lives ;
     drawArray[drawMe]();
   }
 
-  // Hangman
+  // image pendu
   canvas =  function(){
 
     myStickman = document.getElementById("stickman");
@@ -96,13 +95,13 @@
     context.lineWidth = 2;
   };
   
-    head = function(){
+  head = function(){
       myStickman = document.getElementById("stickman");
       context = myStickman.getContext('2d');
       context.beginPath();
       context.arc(60, 25, 10, 0, Math.PI*2, true);
       context.stroke();
-    }
+  }
     
   draw = function($pathFromx, $pathFromy, $pathTox, $pathToy) {
     
@@ -110,7 +109,7 @@
     context.lineTo($pathTox, $pathToy);
     context.stroke(); 
 }
-
+//position des images du pendu par rapport à l'ecran//
    frame1 = function() {
      draw (0, 150, 150, 150);
    };
@@ -173,8 +172,7 @@
     }
   }
   
-    
-  // Play
+  // Jeu
   play = function () {
     categories = [
         ["pingouin", "cheval", "dromadaire", "python", "hamster", "porc", "tortue"],
@@ -203,7 +201,6 @@
     document.getElementById('reset').onclick = function() {
     correct.parentNode.removeChild(correct);
     letters.parentNode.removeChild(letters);
-    showClue.innerHTML = "";
     context.clearRect(0, 0, 400, 400);
     play();
   }
