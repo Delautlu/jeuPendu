@@ -1,5 +1,5 @@
 
-
+  //Déclaratuon des variables
   var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
         'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
         't', 'u', 'v', 'w', 'x', 'y', 'z'];
@@ -13,12 +13,12 @@
   var counter ;           // Count correct geusses
   var space;              // Number of spaces in word '-'
 
-  // Get elements
+  // Recherche et sélection des id des élements dans HTML
   var showLives = document.getElementById("mylives");
   var showCatagory = document.getElementById("scatagory");
   var showClue = document.getElementById("clue");
 
-  // create alphabet ul
+  // creation d'une liste à p rtir des lettres de l'alphabet + attribution aux bouttons pour obtenir un clavier virtuel
   var buttons = function () {
     myButtons = document.getElementById('buttons');
     letters = document.createElement('ul');
@@ -34,7 +34,7 @@
     }
   }
     
-  // Select Catagory
+  // catégories du jeu (animaux, films,villes)
   var selectCat = function () {
     if (chosenCategory === categories[0]) {
       catagoryName.innerHTML = "Trouvez un animal";
@@ -45,8 +45,8 @@
     }
   }
 
-  // Create geusses ul
-   result = function () {
+  // Création du mot/ choix lettre
+  result = function () {
     wordHolder = document.getElementById('hold');
     correct = document.createElement('ul');
 
@@ -60,14 +60,13 @@
       } else {
         guess.innerHTML = "_";
       }
-
       geusses.push(guess);
       wordHolder.appendChild(correct);
       correct.appendChild(guess);
     }
   }
   
-  // Show lives
+  // compteur de vies et annonce résultat
    comments = function () {
     showLives.innerHTML = "Il vous reste " + lives + " vies";
     if (lives < 1) {
@@ -80,15 +79,14 @@
     }
   }
 
-  // Animate man
+  // variable/animation du pendu
   var animate = function () {
     var drawMe = lives ;
     drawArray[drawMe]();
   }
 
-  // Hangman
+  // image pendu/ déclarations des fonctions permettant l'affichage des images
   canvas =  function(){
-
     myStickman = document.getElementById("stickman");
     context = myStickman.getContext('2d');
     context.beginPath();
@@ -96,21 +94,21 @@
     context.lineWidth = 2;
   };
   
-    head = function(){
+  head = function(){
       myStickman = document.getElementById("stickman");
       context = myStickman.getContext('2d');
       context.beginPath();
       context.arc(60, 25, 10, 0, Math.PI*2, true);
       context.stroke();
-    }
+  }
     
   draw = function($pathFromx, $pathFromy, $pathTox, $pathToy) {
-    
     context.moveTo($pathFromx, $pathFromy);
     context.lineTo($pathTox, $pathToy);
     context.stroke(); 
 }
 
+//position des traits du pendu  par rapport à la page, l'écran //
    frame1 = function() {
      draw (0, 150, 150, 150);
    };
@@ -150,7 +148,7 @@
   drawArray = [rightLeg, leftLeg, rightArm, leftArm,  torso,  head, frame4, frame3, frame2, frame1]; 
 
 
-  // OnClick Function
+  //Function qui permet de calculer le nombre de vies restantes/ le compteur
    check = function () {
     list.onclick = function () {
       var geuss = (this.innerHTML);
@@ -173,8 +171,7 @@
     }
   }
   
-    
-  // Play
+  // Jeu/ fonction play, rappelant les éléments de catégories, les bonnes réponses.
   play = function () {
     categories = [
         ["pingouin", "cheval", "dromadaire", "python", "hamster", "porc", "tortue"],
@@ -199,11 +196,10 @@
   }
   play();
   
-   // Reset
+   // Reset , permet de relancer le jeu en cliquant sur le bouton si échec de la partie d'avant.
     document.getElementById('reset').onclick = function() {
     correct.parentNode.removeChild(correct);
     letters.parentNode.removeChild(letters);
-    showClue.innerHTML = "";
     context.clearRect(0, 0, 400, 400);
     play();
   }
