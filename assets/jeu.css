@@ -130,12 +130,7 @@ p {
   color: #fff;
 }
 button {
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-  -khtml-border-radius: 5px;
-  border: solid 1px #fff;
-  border-bottom: none;
+  border-radius: 15px;
   font-size:20px;
   background-color:#686b56e0;
   color:#fff;
