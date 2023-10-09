@@ -1,5 +1,5 @@
 
-  //Déclaratuon des variables
+
   var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
         'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
         't', 'u', 'v', 'w', 'x', 'y', 'z'];
@@ -13,12 +13,12 @@
   var counter ;           // Count correct geusses
   var space;              // Number of spaces in word '-'
 
-  // Recherche et sélection des id des élements dans HTML
+  // Get elements
   var showLives = document.getElementById("mylives");
   var showCatagory = document.getElementById("scatagory");
   var showClue = document.getElementById("clue");
 
-  // creation d'une liste à p rtir des lettres de l'alphabet + attribution aux bouttons pour obtenir un clavier virtuel
+  // create alphabet ul
   var buttons = function () {
     myButtons = document.getElementById('buttons');
     letters = document.createElement('ul');
@@ -34,7 +34,7 @@
     }
   }
     
-  // catégories du jeu (animaux, films,villes)
+  // Select Catagory
   var selectCat = function () {
     if (chosenCategory === categories[0]) {
       catagoryName.innerHTML = "Trouvez un animal";
@@ -45,8 +45,8 @@
     }
   }
 
-  // Création du mot/ choix lettre
-  result = function () {
+  // Create geusses ul
+   result = function () {
     wordHolder = document.getElementById('hold');
     correct = document.createElement('ul');
 
@@ -79,13 +79,13 @@
     }
   }
 
-  // variable/animation du pendu
+  // Animate man
   var animate = function () {
     var drawMe = lives ;
     drawArray[drawMe]();
   }
 
-  // image pendu/ déclarations des fonctions permettant l'affichage des images
+  // Hangman
   canvas =  function(){
     myStickman = document.getElementById("stickman");
     context = myStickman.getContext('2d');
@@ -108,7 +108,6 @@
     context.stroke(); 
 }
 
-//position des traits du pendu  par rapport à la page, l'écran //
    frame1 = function() {
      draw (0, 150, 150, 150);
    };
@@ -171,7 +170,8 @@
     }
   }
   
-  // Jeu/ fonction play, rappelant les éléments de catégories, les bonnes réponses.
+    
+  // Play
   play = function () {
     categories = [
         ["pingouin", "cheval", "dromadaire", "python", "hamster", "porc", "tortue"],
