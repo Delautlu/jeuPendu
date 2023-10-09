@@ -1,5 +1,5 @@
 window.onload = function () {
-
+//Déclaration des variables dans la fonction onload
     var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
           'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
           't', 'u', 'v', 'w', 'x', 'y', 'z'];
@@ -14,7 +14,7 @@ window.onload = function () {
     var counter ;           // Count correct geusses
     var space;              // Number of spaces in word '-'
   
-    // Get elements
+    // Recherche et appel des elements selon leurs id
     var showLives = document.getElementById("mylives");
     var showCatagory = document.getElementById("scatagory");
     var getHint = document.getElementById("hint");
@@ -22,7 +22,7 @@ window.onload = function () {
   
   
   
-    // create alphabet ul
+    // création de la liste des lettres de l'alphabet sur le clavier virtuel du jeu
     var buttons = function () {
       myButtons = document.getElementById('buttons');
       letters = document.createElement('ul');
@@ -37,9 +37,8 @@ window.onload = function () {
         letters.appendChild(list);
       }
     }
-      
     
-    // Select Catagory
+    // Créations des catégories/sujet du jeu ()
     var selectCat = function () {
       if (chosenCategory === categories[0]) {
         catagoryName.innerHTML = "The Chosen Category Is Premier League Football Teams";
