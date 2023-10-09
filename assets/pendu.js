@@ -1,5 +1,5 @@
 
-
+//Déclaration des variables
   var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
         'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
         't', 'u', 'v', 'w', 'x', 'y', 'z'];
@@ -13,12 +13,12 @@
   var counter ;           // Count correct geusses
   var space;              // Number of spaces in word '-'
 
-  // Get elements
+  // Recherche des éléments HTML par leur ID
   var showLives = document.getElementById("mylives");
   var showCatagory = document.getElementById("scatagory");
   var showClue = document.getElementById("clue");
 
-  // create alphabet ul
+  // creation liste alphabet reliée aux boutons, clavier visuel
   var buttons = function () {
     myButtons = document.getElementById('buttons');
     letters = document.createElement('ul');
@@ -34,7 +34,7 @@
     }
   }
     
-  // Select Catagory
+  // Selection de la catégorie de mots à trouver
   var selectCat = function () {
     if (chosenCategory === categories[0]) {
       catagoryName.innerHTML = "Trouvez un animal";
@@ -45,7 +45,7 @@
     }
   }
 
-  // Create geusses ul
+  // Creation du format du mot sur le clavier, espace entre les lettres
    result = function () {
     wordHolder = document.getElementById('hold');
     correct = document.createElement('ul');
@@ -79,13 +79,13 @@
     }
   }
 
-  // Animate man
+  // fonction animation du pendu
   var animate = function () {
     var drawMe = lives ;
     drawArray[drawMe]();
   }
 
-  // Hangman
+  // Le bonhomme pendu
   canvas =  function(){
     myStickman = document.getElementById("stickman");
     context = myStickman.getContext('2d');
@@ -93,7 +93,7 @@
     context.strokeStyle = "#fff";
     context.lineWidth = 2;
   };
-  
+  //Fonctions relatives à l'animation du bonhomme, les traits apparaissent un par un à chaque mauvaise réponse.
   head = function(){
       myStickman = document.getElementById("stickman");
       context = myStickman.getContext('2d');
@@ -109,6 +109,7 @@
 }
 
    frame1 = function() {
+    //Placement des traits à l'écran, position sur le quadrllage de la page
      draw (0, 150, 150, 150);
    };
    
@@ -171,14 +172,14 @@
   }
   
     
-  // Play
+  // Fonction du jeu en lui même, les différents mots à trouver
   play = function () {
     categories = [
         ["pingouin", "cheval", "dromadaire", "python", "hamster", "porc", "tortue"],
         ["alien", "dirty-dancing", "gladiator", "pulp fiction", "la ligne verte"],
         ["paris", "milan", "madrid", "amsterdam", "prague"]
     ];
-
+  //permet d'utiliser des traits d'union dans les catégories ou dans les réponses données.
     chosenCategory = categories[Math.floor(Math.random() * categories.length)];
     word = chosenCategory[Math.floor(Math.random() * chosenCategory.length)];
     word = word.replace(/\s/g, "-");
