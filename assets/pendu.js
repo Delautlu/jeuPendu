@@ -147,7 +147,6 @@
   
   drawArray = [rightLeg, leftLeg, rightArm, leftArm,  torso,  head, frame4, frame3, frame2, frame1]; 
 
-
   //Function qui permet de calculer le nombre de vies restantes/ le compteur
    check = function () {
     list.onclick = function () {
@@ -170,8 +169,7 @@
       }
     }
   }
-  
-    
+
   // Fonction du jeu en lui même, les différents mots à trouver
   play = function () {
     categories = [
@@ -179,13 +177,13 @@
         ["alien", "dirty-dancing", "gladiator", "pulp fiction", "la ligne verte"],
         ["paris", "milan", "madrid", "amsterdam", "prague"]
     ];
+    
   //permet d'utiliser des traits d'union dans les catégories ou dans les réponses données.
     chosenCategory = categories[Math.floor(Math.random() * categories.length)];
     word = chosenCategory[Math.floor(Math.random() * chosenCategory.length)];
     word = word.replace(/\s/g, "-");
     console.log(word);
     buttons();
-
     geusses = [ ];
     lives = 10;
     counter = 0;
