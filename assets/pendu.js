@@ -4,14 +4,14 @@
         'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
         't', 'u', 'v', 'w', 'x', 'y', 'z'];
   
-  var categories;         // Array of topics
-  var chosenCategory;     // Selected catagory
-  var word ;              // Selected word
-  var guess ;             // Geuss
-  var geusses = [ ];      // Stored geusses
-  var lives ;             // Lives
-  var counter ;           // Count correct geusses
-  var space;              // Number of spaces in word '-'
+  var categories;         // Longueur, déclaration des catégories
+  var chosenCategory;     // Selection catégorie
+  var word ;              // Selection mot
+  var guess ;             // les lettres
+  var geusses = [ ];      // stocke les lettres
+  var lives ;             // nombre de vies, compteur
+  var counter ;           // Compte le nombre de lettre correctes
+  var space;              // Nombre d'espace dans un mot '-'
 
   // Recherche des éléments HTML par leur ID
   var showLives = document.getElementById("mylives");
